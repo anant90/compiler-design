@@ -1,2 +1,0 @@
-Skeleton 5
-ae"FolLexFun"i3aä¢Tokens"gp1c"Fol_TOKENS"aä¢Interface"gp1c"INTERFACE"f3d"Char"ä¢TextIO"ä¢Vector"jh3aä¢yyInput"jh3aä¢TIO"gp1ÿad"TSIO"gp2ÿ2d"StreamIO"ad"TPIO"gp1d"TextPrimIO"h0aä¢UserDeclarations"h4aÿgp1ÿaÿ*çğ±ÿ*eÿƒf2ÿÿ*bbd2egp1ÿ‚2f5Cd"IO"ÿÿ‚2ÿÿ$Nf0f1ÿ$gp1c"LEXER"

@@ -1,2 +1,0 @@
-Skeleton 5
-ae"FolLrValsFun"i3aдўToken"gp1c"TOKEN"aдўAbsyn"gp1c"ABSYN"f±яjh2ad"ParserData"h7aдўHeader"h1egp1я'aдўLrTable"gp2яяЃ$Caяgpя;bезр±яЃ$f4d"Char"d"String"яЃ$d"Array"bезр±яЃaдўMlyValue"и0ad"EC"h2яЃ?bя‚$ж±я‚,ad"Actions"h2bя‚$f2яЃ$я‚,яѓNad"Tokens"jя‚7gp1c"Fol_TOKENS"gp1c"Fol_LRVALS"
