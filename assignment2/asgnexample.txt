@@ -1,0 +1,48 @@
+
+(* Example of user defined data types *)
+
+datatype binop = Div | Mod | plus|minus|mult|carat|and1|or|equal|great|less|greq|leseq ;
+datatype EXPR =       
+	Real of real 
+       | Int of int 
+       | True of bool
+       | False of bool
+       | Var of string 
+       | Bin of binop * EXPR*EXPR
+       | Un of unop * EXPR  ;
+
+
+(* Example of user defined functions *)
+
+fun evalI (Int(n))  = n
+
+    | evalI (Var(s)) = f (s)
+    | evalI (Bin (b,e1,e2))  = 
+     ( case b of 
+
+
+	plus => evalI (e1)  + evalI (e2) 
+	|minus => evalI (e1)  - evalI (e2) 
+	|mult => evalI (e1)  * evalI (e2) 
+	|Mod => evalI (e1)  mod evalI (e2) 
+	|Div => evalI (e1)  div evalI (e2) 
+	|carat => (let fun e (m,0) = 1
+                                | e (m,l) = m*e(m,l-1)
+                         in e (evalI (e1) ,evalI (e2) )       
+                         end)
+    )
+
+
+
+(* Semantic rules where these functions are applied *)
+
+  START : EXPLST	(SOME(EXPLST))
+
+  EXPLST : IEXP	SEMI 		(printI(IEXP1);print("THE INTEGRAL EXPRESSION EVALUATES TO: "^Int.toString(evalI(IEXP1)));print("\n");stmt(IEXP1))	
+	| EXPLST IEXP SEMI	(printI(IEXP1);print("THE INTEGRAL EXPRESSION EVALUATES TO: "^Int.toString(evalI(IEXP1)));print("\n");stmt1(EXPLST1,IEXP1))
+	| BEXP SEMI             (printB(BEXP1);print("THE BOOLEAN EXPRESSION EVALUATES TO: "^Bool.toString(evalB(BEXP1)));print("\n");stmt(BEXP1))
+	| EXPLST BEXP SEMI	(printB(BEXP1);print("THE BOOLEAN EXPRESSION EVALUATES TO: "^Bool.toString(evalB(BEXP1)));print("\n");stmt1(EXPLST1,BEXP1))
+	| REXP SEMI             (printR(REXP1);print("THE REAL EXPRESSION EVALUATES TO: "^Real.toString(evalR(REXP1)));print("\n");stmt(REXP1))
+	| EXPLST REXP SEMI	(printR(REXP1);print("THE REAL EXPRESSION EVALUATES TO: "^Real.toString(evalR(REXP1)));print("\n");stmt1(EXPLST1,REXP1))
+ 
+

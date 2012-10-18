@@ -1,0 +1,2 @@
+Skeleton 5
+d5Caä¢FolLrVals"jjh2aä¢Token"gp2ä¢LrParser"ÿáä¢Absyn"çğ±ÿ.gp1e"FolLrValsFun"gp1c"Fol_LRVALS"aä¢Interface"jjh0gp1eÿgp1c"INTERFACE"aä¢FolLex"jjh2áä¢Tokens"çğ²ÿÿ‚áÿçğ±ÿgp1e"FolLexFun"gp1c"LEXER"aä¢FolParser"jjh3aä¢ParserData"gp2ÿÿƒad"Lex"gp1ÿ‚aÿ gp1ÿ gp1e"Join"gp1c"PARSER"ad¢Parse"jjh4ÿ-ÿ‚$ad"Parser"gp1ÿƒ	ÿ‚gp1eÿ„gp1c"PARSE"N

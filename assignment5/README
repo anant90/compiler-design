@@ -1,0 +1,22 @@
+1. Assignment submitted by:
+	Anant Jain	
+	2008EE10330	
+	Group 2
+2. Usage:
+In SML, type:
+- CM.make("logic.cm");
+	. . .
+ 	. . .
+val it = true:bool
+
+- use "main.sml"
+
+3. Datatypes.sml contains the Abstract datatype "Abs"
+
+4. The remaining files (compiler.sml, logic.cm, glue.sml) have been taken from the reference provided on Moodle.
+
+5. make cleans up the directory of any previous generated files. (.lex.sml, .yacc.sml .sig etc.)
+
+6. [opsem.pl] is the database file.
+
+7. expr is the expression file for SML implementation.

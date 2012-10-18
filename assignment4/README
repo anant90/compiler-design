@@ -1,0 +1,24 @@
+1. Assignment submitted by:
+	Anant Jain	
+	2008EE10330	
+	Group 2
+2. Usage:
+In SML, type:
+- CM.make("logic.cm");
+	. . .
+ 	. . .
+val it = true:bool
+
+- use "main.sml"
+
+3. functions.sml contains the functions for finding the height, size of the tree, and also to output the set of variables in the tree
+
+4. Datatypes.sml contains the Abstract datatype "Abs"
+
+5. The remaining files (compiler.sml, logic.cm, glue.sml) have been taken from the reference provided on Moodle.
+
+6. make cleans up the directory of any previous generated files. (.lex.sml, .yacc.sml .sig etc.)
+
+7. [relations.pl] is the database file.
+
+8. [query.pl] is the query file.

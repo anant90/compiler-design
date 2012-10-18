@@ -1,0 +1,20 @@
+%a
+hastype([(x,'real'), (y,'real')] ,multiply(plus(real(2),minus(var(x),divide(var(y),real(3)))),neg(plus(real(5),neg(real(3))))), X ).
+bigstep([(x,real(6)), (y,real(3))] ,multiply(plus(real(2),minus(var(x),divide(var(y),real(3)))),neg(plus(real(5),neg(real(3))))), X ).
+
+%b
+hastype([],neg(minus(divide(real(9.0),real(5.0)),real(4.0))),X).
+bigstep([],neg(minus(divide(real(9.0),real(5.0)),real(4.0))),X).
+
+%c
+hastype([(x,'bool'),(y,'bool')], andd(orr(var(x),var(y)),nott(andd(nott(var(y)),andd(var(x),true)))),X).
+bigstep([(x,true),(y,false)], andd(orr(var(x),var(y)),nott(andd(nott(var(y)),andd(var(x),true)))),X).
+
+%d
+bigstep([(x,integer(6)),(y,true)],(lamda(x,integer(6)),(lamda(y,true),tuple([tuple([var(x), real(5.0)]),tuple([var(y),integer(4)])]) ) ) ,X).
+hastype([(x,'integer'),(y,'bool')],(lamda(x,integer(6)),(lamda(y,true),tuple([tuple([var(x), real(5.0)]),tuple([var(y),integer(4)])]) ) ) ,X).
+
+%f
+hastype([(x,'integer'), (y,'integer')], let(bind(x,integer(3)),let(bind(y,integer(7)),plus(var(x),var(y)))), X).
+bigstep([(x,integer(3)), (y,integer(7))], let(bind(x,integer(3)),let(bind(y,integer(7)),plus(var(x),var(y)))), X).
+

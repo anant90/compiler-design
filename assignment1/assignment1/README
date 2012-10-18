@@ -1,0 +1,8 @@
+1. Assignment submitted by:
+	Anant Jain	
+	2008EE10330	
+	Group 2
+
+2. It is assumed that the constants have to be returned as string themselves to the parser. It is assumed that the parser would be appropriately able to convert the string into constants.
+
+3. Two files are attached in the zip: scanner.lex and scanner.lex.sml. The latter is the product of running ml-lex on the former.

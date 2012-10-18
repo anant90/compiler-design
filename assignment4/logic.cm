@@ -1,0 +1,14 @@
+Library
+ structure Logic
+ structure LogicParser
+ structure LogicLrVals
+ structure Abs
+is
+ logic.lex
+ logic.yacc:MLYacc
+ glue.sml
+ compiler.sml
+ Datatypes.sml
+ $/basis.cm (* SML/NJ’s Basis Library. *)
+ $/ml-yacc-lib.cm (* Code written by Lucent. *)
+ $smlnj/compiler/compiler.cm (* Structure Compiler. *)

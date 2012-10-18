@@ -1,0 +1,291 @@
+
+state 0:
+
+	START : . PROGRAM 
+
+	NAME	shift 7
+
+	PROGRAM	goto 6
+	START	goto 26
+	STATEMENT	goto 5
+	FACT	goto 4
+	RULE	goto 3
+	HEAD	goto 2
+	LITERAL	goto 1
+
+	.	reduce by rule 2
+
+
+state 1:
+
+	FACT : LITERAL .  (reduce by rule 5)
+	HEAD : LITERAL .  (reduce by rule 7)
+
+	PERIOD	reduce by rule 5
+	IF	reduce by rule 7
+
+
+	.	error
+
+
+state 2:
+
+	RULE : HEAD . IF BODY 
+
+	IF	shift 8
+
+
+	.	error
+
+
+state 3:
+
+	STATEMENT : RULE . PERIOD 
+
+	PERIOD	shift 9
+
+
+	.	error
+
+
+state 4:
+
+	STATEMENT : FACT . PERIOD 
+
+	PERIOD	shift 10
+
+
+	.	error
+
+
+state 5:
+
+	PROGRAM : STATEMENT . PROGRAM 
+
+	NAME	shift 7
+
+	PROGRAM	goto 11
+	STATEMENT	goto 5
+	FACT	goto 4
+	RULE	goto 3
+	HEAD	goto 2
+	LITERAL	goto 1
+
+	.	reduce by rule 2
+
+
+state 6:
+
+	START : PROGRAM .  (reduce by rule 0)
+
+
+
+	.	reduce by rule 0
+
+
+state 7:
+
+	LITERAL : NAME .  (reduce by rule 10)
+	LITERAL : NAME . TUPLE 
+
+	LPAREN	shift 13
+
+	TUPLE	goto 12
+
+	.	reduce by rule 10
+
+
+state 8:
+
+	RULE : HEAD IF . BODY 
+
+	NAME	shift 7
+
+	BODY	goto 15
+	LITERAL	goto 14
+
+	.	error
+
+
+state 9:
+
+	STATEMENT : RULE PERIOD .  (reduce by rule 4)
+
+
+
+	.	reduce by rule 4
+
+
+state 10:
+
+	STATEMENT : FACT PERIOD .  (reduce by rule 3)
+
+
+
+	.	reduce by rule 3
+
+
+state 11:
+
+	PROGRAM : STATEMENT PROGRAM .  (reduce by rule 1)
+
+
+
+	.	reduce by rule 1
+
+
+state 12:
+
+	LITERAL : NAME TUPLE .  (reduce by rule 11)
+
+
+
+	.	reduce by rule 11
+
+
+state 13:
+
+	TUPLE : LPAREN . TERMS RPAREN 
+
+	NAME	shift 19
+	VARIABLE	shift 18
+
+	TERM	goto 17
+	TERMS	goto 16
+
+	.	error
+
+
+state 14:
+
+	BODY : LITERAL .  (reduce by rule 8)
+	BODY : LITERAL . COMMA BODY 
+
+	COMMA	shift 20
+
+
+	.	reduce by rule 8
+
+
+state 15:
+
+	RULE : HEAD IF BODY .  (reduce by rule 6)
+
+
+
+	.	reduce by rule 6
+
+
+state 16:
+
+	TUPLE : LPAREN TERMS . RPAREN 
+
+	RPAREN	shift 21
+
+
+	.	error
+
+
+state 17:
+
+	TERMS : TERM .  (reduce by rule 13)
+	TERMS : TERM . COMMA TERMS 
+
+	COMMA	shift 22
+
+
+	.	reduce by rule 13
+
+
+state 18:
+
+	TERM : VARIABLE .  (reduce by rule 16)
+
+
+
+	.	reduce by rule 16
+
+
+state 19:
+
+	TERM : NAME .  (reduce by rule 15)
+	TERM : NAME . TUPLE 
+
+	LPAREN	shift 13
+
+	TUPLE	goto 23
+
+	.	reduce by rule 15
+
+
+state 20:
+
+	BODY : LITERAL COMMA . BODY 
+
+	NAME	shift 7
+
+	BODY	goto 24
+	LITERAL	goto 14
+
+	.	error
+
+
+state 21:
+
+	TUPLE : LPAREN TERMS RPAREN .  (reduce by rule 12)
+
+
+
+	.	reduce by rule 12
+
+
+state 22:
+
+	TERMS : TERM COMMA . TERMS 
+
+	NAME	shift 19
+	VARIABLE	shift 18
+
+	TERM	goto 17
+	TERMS	goto 25
+
+	.	error
+
+
+state 23:
+
+	TERM : NAME TUPLE .  (reduce by rule 17)
+
+
+
+	.	reduce by rule 17
+
+
+state 24:
+
+	BODY : LITERAL COMMA BODY .  (reduce by rule 9)
+
+
+
+	.	reduce by rule 9
+
+
+state 25:
+
+	TERMS : TERM COMMA TERMS .  (reduce by rule 14)
+
+
+
+	.	reduce by rule 14
+
+
+state 26:
+
+
+	EOF	accept
+
+
+	.	error
+
+15 of 46 action table entries left after compaction
+23 goto table entries

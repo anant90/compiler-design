@@ -1,0 +1,1545 @@
+46 reduce/reduce conflicts
+5 shift/reduce conflicts
+
+error:  state 0: reduce/reduce conflict between rule 29 and rule 9 on EOF
+error:  state 5: shift/reduce conflict (shift EQUALS, reduce by rule 2)
+error:  state 11: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+error:  state 12: reduce/reduce conflict between rule 29 and rule 9 on THEN
+error:  state 13: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+error:  state 14: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+error:  state 15: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 15: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+error:  state 16: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 17: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on END
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on IN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on FI
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on ELSE
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on THEN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on EOF
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on RPAREN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on EQUALS
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on PERIOD
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on IMPLIES
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on COMMA
+error:  state 27: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+error:  state 28: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+error:  state 60: reduce/reduce conflict between rule 29 and rule 9 on IN
+error:  state 61: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on END
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on IN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on FI
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on THEN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on EOF
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on END
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on IN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on FI
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on THEN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on EOF
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 65: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 65: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+error:  state 75: reduce/reduce conflict between rule 29 and rule 9 on END
+error:  state 76: reduce/reduce conflict between rule 29 and rule 9 on FI
+error:  state 0: reduce/reduce conflict between rule 29 and rule 9 on EOF
+
+state 0:
+
+	START : . EXPR 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	EOF	reduce by rule 9
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 10
+	START	goto 81
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 1:
+
+	FACTOR1 : FACTOR2 .  (reduce by rule 35)
+
+
+
+	.	reduce by rule 35
+
+
+state 2:
+
+	FACTOR : FACTOR1 .  (reduce by rule 33)
+
+
+
+	.	reduce by rule 33
+
+
+state 3:
+
+	TERM : FACTOR .  (reduce by rule 30)
+	TERM : FACTOR . MULT TERM 
+	TERM : FACTOR . DIV TERM 
+
+	MULT	shift 26
+	DIV	shift 25
+
+
+	.	reduce by rule 30
+
+
+state 4:
+
+	AEXPR : TERM .  (reduce by rule 26)
+	AEXPR : TERM . PLUS AEXPR 
+	AEXPR : TERM . MINUS AEXPR 
+
+	PLUS	shift 28
+	MINUS	shift 27
+
+
+	.	reduce by rule 26
+
+error:  state 5: shift/reduce conflict (shift EQUALS, reduce by rule 2)
+
+state 5:
+
+	EXPR : AEXPR .  (reduce by rule 2)
+	BFACTOR : AEXPR . GT AEXPR 
+	BFACTOR : AEXPR . GTE AEXPR 
+	BFACTOR : AEXPR . LT AEXPR 
+	BFACTOR : AEXPR . LTE AEXPR 
+	BFACTOR : AEXPR . EQUALS AEXPR 
+
+	GT	shift 33
+	LT	shift 32
+	GTE	shift 31
+	LTE	shift 30
+	EQUALS	shift 29
+
+
+	.	reduce by rule 2
+
+
+state 6:
+
+	BBTERM : BFACTOR .  (reduce by rule 14)
+
+
+
+	.	reduce by rule 14
+
+
+state 7:
+
+	BTERM : BBTERM .  (reduce by rule 12)
+	BTERM : BBTERM . AND BTERM 
+
+	AND	shift 34
+
+
+	.	reduce by rule 12
+
+
+state 8:
+
+	BEXPR : BTERM .  (reduce by rule 10)
+	BEXPR : BTERM . OR BEXPR 
+
+	OR	shift 35
+
+
+	.	reduce by rule 10
+
+
+state 9:
+
+	EXPR : BEXPR .  (reduce by rule 1)
+
+
+
+	.	reduce by rule 1
+
+
+state 10:
+
+	START : EXPR .  (reduce by rule 0)
+
+
+
+	.	reduce by rule 0
+
+error:  state 11: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+
+state 11:
+
+	EXPR : LET . EXPR EQUALS EXPR IN EXPR END 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 9
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 36
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 12: reduce/reduce conflict between rule 29 and rule 9 on THEN
+
+state 12:
+
+	EXPR : IF . EXPR THEN EXPR ELSE EXPR FI 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	THEN	reduce by rule 9
+	LET	shift 11
+
+	EXPR	goto 37
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 13: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+
+state 13:
+
+	EXPR : FUNAPPLY . EXPR PERIOD EXPR 
+
+	PERIOD	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 38
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 14: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+
+state 14:
+
+	EXPR : FUN . EXPR IMPLIES EXPR 
+
+	IMPLIES	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 39
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 15: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 15: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+
+state 15:
+
+	EXPR : PROJ . TUPLE INTEGER 
+
+	COMMA	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 42
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 41
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+	TUPLE	goto 40
+
+	.	error
+
+error:  state 16: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+
+state 16:
+
+	EXPR : LBRACKET . TUPLE RBRACKET 
+
+	COMMA	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	RBRACKET	reduce by rule 29
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 42
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 41
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+	TUPLE	goto 43
+
+	.	error
+
+error:  state 17: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+
+state 17:
+
+	FACTOR1 : LPAREN . EXPR RPAREN 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	RPAREN	reduce by rule 9
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 44
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 18:
+
+	BBTERM : NOT . LPAREN BEXPR RPAREN 
+
+	LPAREN	shift 45
+
+
+	.	error
+
+
+state 19:
+
+	BFACTOR : FALSE .  (reduce by rule 19)
+
+
+
+	.	reduce by rule 19
+
+
+state 20:
+
+	BFACTOR : TRUE .  (reduce by rule 18)
+
+
+
+	.	reduce by rule 18
+
+
+state 21:
+
+	FACTOR : NEG . FACTOR1 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	LPAREN	shift 17
+
+	FACTOR1	goto 46
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 22:
+
+	FACTOR2 : REAL .  (reduce by rule 38)
+
+
+
+	.	reduce by rule 38
+
+
+state 23:
+
+	FACTOR2 : INTEGER .  (reduce by rule 37)
+
+
+
+	.	reduce by rule 37
+
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on END
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on IN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on FI
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on ELSE
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on THEN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on EOF
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on RPAREN
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on EQUALS
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on PERIOD
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on IMPLIES
+error:  state 24: reduce/reduce conflict between rule 39 and rule 20 on COMMA
+
+state 24:
+
+	BFACTOR : VARIABLE .  (reduce by rule 20)
+	FACTOR2 : VARIABLE .  (reduce by rule 39)
+
+	COMMA	reduce by rule 20
+	IMPLIES	reduce by rule 20
+	PERIOD	reduce by rule 20
+	INTEGER	reduce by rule 39
+	PLUS	reduce by rule 39
+	MINUS	reduce by rule 39
+	MULT	reduce by rule 39
+	DIV	reduce by rule 39
+	GT	reduce by rule 39
+	LT	reduce by rule 39
+	GTE	reduce by rule 39
+	LTE	reduce by rule 39
+	AND	reduce by rule 20
+	OR	reduce by rule 20
+	EQUALS	reduce by rule 20
+	RPAREN	reduce by rule 20
+	RBRACKET	reduce by rule 39
+	EOF	reduce by rule 20
+	THEN	reduce by rule 20
+	ELSE	reduce by rule 20
+	FI	reduce by rule 20
+	IN	reduce by rule 20
+	END	reduce by rule 20
+
+
+	.	error
+
+
+state 25:
+
+	TERM : FACTOR DIV . TERM 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	TERM	goto 48
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 26:
+
+	TERM : FACTOR MULT . TERM 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	TERM	goto 49
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 27: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+
+state 27:
+
+	AEXPR : TERM MINUS . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 50
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+error:  state 28: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+
+state 28:
+
+	AEXPR : TERM PLUS . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 51
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 29:
+
+	BFACTOR : AEXPR EQUALS . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 52
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 30:
+
+	BFACTOR : AEXPR LTE . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 53
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 31:
+
+	BFACTOR : AEXPR GTE . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 54
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 32:
+
+	BFACTOR : AEXPR LT . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 55
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 33:
+
+	BFACTOR : AEXPR GT . AEXPR 
+
+	VARIABLE	shift 47
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	LPAREN	shift 17
+
+	AEXPR	goto 56
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 34:
+
+	BTERM : BBTERM AND . BTERM 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	NOT	shift 18
+	LPAREN	shift 17
+
+	BTERM	goto 58
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 57
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 35:
+
+	BEXPR : BTERM OR . BEXPR 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	NOT	shift 18
+	LPAREN	shift 17
+
+	BEXPR	goto 59
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 57
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 36:
+
+	EXPR : LET EXPR . EQUALS EXPR IN EXPR END 
+
+	EQUALS	shift 60
+
+
+	.	error
+
+
+state 37:
+
+	EXPR : IF EXPR . THEN EXPR ELSE EXPR FI 
+
+	THEN	shift 61
+
+
+	.	error
+
+
+state 38:
+
+	EXPR : FUNAPPLY EXPR . PERIOD EXPR 
+
+	PERIOD	shift 62
+
+
+	.	error
+
+
+state 39:
+
+	EXPR : FUN EXPR . IMPLIES EXPR 
+
+	IMPLIES	shift 63
+
+
+	.	error
+
+
+state 40:
+
+	EXPR : PROJ TUPLE . INTEGER 
+
+	INTEGER	shift 64
+
+
+	.	error
+
+
+state 41:
+
+	EXPR : AEXPR .  (reduce by rule 2)
+	BFACTOR : AEXPR . GT AEXPR 
+	BFACTOR : AEXPR . GTE AEXPR 
+	BFACTOR : AEXPR . LT AEXPR 
+	BFACTOR : AEXPR . LTE AEXPR 
+	BFACTOR : AEXPR . EQUALS AEXPR 
+	TUPLE : AEXPR .  (reduce by rule 17)
+
+	COMMA	reduce by rule 2
+	INTEGER	reduce by rule 17
+	GT	shift 33
+	LT	shift 32
+	GTE	shift 31
+	LTE	shift 30
+	EQUALS	shift 29
+	RBRACKET	reduce by rule 17
+
+
+	.	error
+
+
+state 42:
+
+	TUPLE : EXPR . COMMA TUPLE 
+
+	COMMA	shift 65
+
+
+	.	error
+
+
+state 43:
+
+	EXPR : LBRACKET TUPLE . RBRACKET 
+
+	RBRACKET	shift 66
+
+
+	.	error
+
+
+state 44:
+
+	FACTOR1 : LPAREN EXPR . RPAREN 
+
+	RPAREN	shift 67
+
+
+	.	error
+
+
+state 45:
+
+	BBTERM : NOT LPAREN . BEXPR RPAREN 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	NOT	shift 18
+	LPAREN	shift 17
+
+	BEXPR	goto 68
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 57
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	reduce by rule 29
+
+
+state 46:
+
+	FACTOR : NEG FACTOR1 .  (reduce by rule 34)
+
+
+
+	.	reduce by rule 34
+
+
+state 47:
+
+	FACTOR2 : VARIABLE .  (reduce by rule 39)
+
+
+
+	.	reduce by rule 39
+
+
+state 48:
+
+	TERM : FACTOR DIV TERM .  (reduce by rule 32)
+
+
+
+	.	reduce by rule 32
+
+
+state 49:
+
+	TERM : FACTOR MULT TERM .  (reduce by rule 31)
+
+
+
+	.	reduce by rule 31
+
+
+state 50:
+
+	AEXPR : TERM MINUS AEXPR .  (reduce by rule 28)
+
+
+
+	.	reduce by rule 28
+
+
+state 51:
+
+	AEXPR : TERM PLUS AEXPR .  (reduce by rule 27)
+
+
+
+	.	reduce by rule 27
+
+
+state 52:
+
+	BFACTOR : AEXPR EQUALS AEXPR .  (reduce by rule 25)
+
+
+
+	.	reduce by rule 25
+
+
+state 53:
+
+	BFACTOR : AEXPR LTE AEXPR .  (reduce by rule 24)
+
+
+
+	.	reduce by rule 24
+
+
+state 54:
+
+	BFACTOR : AEXPR GTE AEXPR .  (reduce by rule 22)
+
+
+
+	.	reduce by rule 22
+
+
+state 55:
+
+	BFACTOR : AEXPR LT AEXPR .  (reduce by rule 23)
+
+
+
+	.	reduce by rule 23
+
+
+state 56:
+
+	BFACTOR : AEXPR GT AEXPR .  (reduce by rule 21)
+
+
+
+	.	reduce by rule 21
+
+
+state 57:
+
+	BFACTOR : AEXPR . GT AEXPR 
+	BFACTOR : AEXPR . GTE AEXPR 
+	BFACTOR : AEXPR . LT AEXPR 
+	BFACTOR : AEXPR . LTE AEXPR 
+	BFACTOR : AEXPR . EQUALS AEXPR 
+
+	GT	shift 33
+	LT	shift 32
+	GTE	shift 31
+	LTE	shift 30
+	EQUALS	shift 29
+
+
+	.	error
+
+
+state 58:
+
+	BTERM : BBTERM AND BTERM .  (reduce by rule 13)
+
+
+
+	.	reduce by rule 13
+
+
+state 59:
+
+	BEXPR : BTERM OR BEXPR .  (reduce by rule 11)
+
+
+
+	.	reduce by rule 11
+
+error:  state 60: reduce/reduce conflict between rule 29 and rule 9 on IN
+
+state 60:
+
+	EXPR : LET EXPR EQUALS . EXPR IN EXPR END 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+	IN	reduce by rule 9
+
+	EXPR	goto 69
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 61: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+
+state 61:
+
+	EXPR : IF EXPR THEN . EXPR ELSE EXPR FI 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	ELSE	reduce by rule 9
+	LET	shift 11
+
+	EXPR	goto 70
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on END
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on IN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on FI
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on THEN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on EOF
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+error:  state 62: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+
+state 62:
+
+	EXPR : FUNAPPLY EXPR PERIOD . EXPR 
+
+	COMMA	reduce by rule 9
+	IMPLIES	reduce by rule 9
+	PERIOD	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 9
+	LPAREN	shift 17
+	RPAREN	reduce by rule 9
+	LBRACKET	shift 16
+	EOF	reduce by rule 9
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	THEN	reduce by rule 9
+	ELSE	reduce by rule 9
+	FI	reduce by rule 9
+	LET	shift 11
+	IN	reduce by rule 9
+	END	reduce by rule 9
+
+	EXPR	goto 71
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on END
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on IN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on FI
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on ELSE
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on THEN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on EOF
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on RPAREN
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on EQUALS
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on PERIOD
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on IMPLIES
+error:  state 63: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+
+state 63:
+
+	EXPR : FUN EXPR IMPLIES . EXPR 
+
+	COMMA	reduce by rule 9
+	IMPLIES	reduce by rule 9
+	PERIOD	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 9
+	LPAREN	shift 17
+	RPAREN	reduce by rule 9
+	LBRACKET	shift 16
+	EOF	reduce by rule 9
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	THEN	reduce by rule 9
+	ELSE	reduce by rule 9
+	FI	reduce by rule 9
+	LET	shift 11
+	IN	reduce by rule 9
+	END	reduce by rule 9
+
+	EXPR	goto 72
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 64:
+
+	EXPR : PROJ TUPLE INTEGER .  (reduce by rule 4)
+
+
+
+	.	reduce by rule 4
+
+error:  state 65: reduce/reduce conflict between rule 29 and rule 9 on COMMA
+error:  state 65: shift/reduce conflict (shift INTEGER, reduce by rule 29)
+
+state 65:
+
+	TUPLE : EXPR COMMA . TUPLE 
+
+	COMMA	reduce by rule 9
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	RBRACKET	reduce by rule 29
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+
+	EXPR	goto 42
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 41
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+	TUPLE	goto 73
+
+	.	error
+
+
+state 66:
+
+	EXPR : LBRACKET TUPLE RBRACKET .  (reduce by rule 3)
+
+
+
+	.	reduce by rule 3
+
+
+state 67:
+
+	FACTOR1 : LPAREN EXPR RPAREN .  (reduce by rule 36)
+
+
+
+	.	reduce by rule 36
+
+
+state 68:
+
+	BBTERM : NOT LPAREN BEXPR . RPAREN 
+
+	RPAREN	shift 74
+
+
+	.	error
+
+
+state 69:
+
+	EXPR : LET EXPR EQUALS EXPR . IN EXPR END 
+
+	IN	shift 75
+
+
+	.	error
+
+
+state 70:
+
+	EXPR : IF EXPR THEN EXPR . ELSE EXPR FI 
+
+	ELSE	shift 76
+
+
+	.	error
+
+
+state 71:
+
+	EXPR : FUNAPPLY EXPR PERIOD EXPR .  (reduce by rule 6)
+
+
+
+	.	reduce by rule 6
+
+
+state 72:
+
+	EXPR : FUN EXPR IMPLIES EXPR .  (reduce by rule 5)
+
+
+
+	.	reduce by rule 5
+
+
+state 73:
+
+	TUPLE : EXPR COMMA TUPLE .  (reduce by rule 16)
+
+
+
+	.	reduce by rule 16
+
+
+state 74:
+
+	BBTERM : NOT LPAREN BEXPR RPAREN .  (reduce by rule 15)
+
+
+
+	.	reduce by rule 15
+
+error:  state 75: reduce/reduce conflict between rule 29 and rule 9 on END
+
+state 75:
+
+	EXPR : LET EXPR EQUALS EXPR IN . EXPR END 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	LET	shift 11
+	END	reduce by rule 9
+
+	EXPR	goto 77
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+error:  state 76: reduce/reduce conflict between rule 29 and rule 9 on FI
+
+state 76:
+
+	EXPR : IF EXPR THEN EXPR ELSE . EXPR FI 
+
+	VARIABLE	shift 24
+	INTEGER	shift 23
+	REAL	shift 22
+	NEG	shift 21
+	TRUE	shift 20
+	FALSE	shift 19
+	GT	reduce by rule 29
+	LT	reduce by rule 29
+	GTE	reduce by rule 29
+	LTE	reduce by rule 29
+	NOT	shift 18
+	EQUALS	reduce by rule 29
+	LPAREN	shift 17
+	LBRACKET	shift 16
+	PROJ	shift 15
+	FUN	shift 14
+	FUNAPPLY	shift 13
+	IF	shift 12
+	FI	reduce by rule 9
+	LET	shift 11
+
+	EXPR	goto 78
+	BEXPR	goto 9
+	BTERM	goto 8
+	BBTERM	goto 7
+	BFACTOR	goto 6
+	AEXPR	goto 5
+	TERM	goto 4
+	FACTOR	goto 3
+	FACTOR1	goto 2
+	FACTOR2	goto 1
+
+	.	error
+
+
+state 77:
+
+	EXPR : LET EXPR EQUALS EXPR IN EXPR . END 
+
+	END	shift 79
+
+
+	.	error
+
+
+state 78:
+
+	EXPR : IF EXPR THEN EXPR ELSE EXPR . FI 
+
+	FI	shift 80
+
+
+	.	error
+
+
+state 79:
+
+	EXPR : LET EXPR EQUALS EXPR IN EXPR END .  (reduce by rule 8)
+
+
+
+	.	reduce by rule 8
+
+
+state 80:
+
+	EXPR : IF EXPR THEN EXPR ELSE EXPR FI .  (reduce by rule 7)
+
+
+
+	.	reduce by rule 7
+
+
+state 81:
+
+
+	EOF	accept
+
+
+	.	error
+
+353 of 536 action table entries left after compaction
+225 goto table entries
